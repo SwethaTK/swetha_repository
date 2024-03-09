@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "868b37e5-c234-48a1-85cd-3257a983be59",
+		"name": "test1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "folder1",
+			"item": [
+				{
+					"name": "request3_createuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "decbf2dd-603a-4d71-b461-336dcd8f8dbe",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"leader3\");\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"swetha\");\r",
+									"});\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "52f87d93-c0bb-40ab-8954-e24cc1b96c16",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"testname\",\r\n    \"job\": \"leader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "request1_registeruser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25190c74-8683-4fc0-9a6d-3d33ca822c9c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"success\",function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9e2d4ac3-e6a6-4e9b-baa0-da850caee3d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"{{eid}}\",\r\n    \"password\":\"{{pwd}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/register"
+					},
+					"response": []
+				},
+				{
+					"name": "request2_login",
+					"id": "10452c49-2378-4702-80cb-f811b22a4170",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"{{eid}}\",\r\n    \"password\":\"{{pwd}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "request4_delete",
+					"id": "1733ed1b-2b6a-440e-b593-42fa5e173de2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "request5_singleuser",
+					"id": "47b4df51-2a2f-47f3-a663-ac03dce909e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/unknown/2"
+					},
+					"response": []
+				}
+			],
+			"id": "48867c9e-fda1-4286-8dbd-ff3de30b2bcd"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "964af117-024a-45fc-9715-8821392070eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1ac13748-6a03-4a95-96bf-5d7a330e0215",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
